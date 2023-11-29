@@ -1,6 +1,6 @@
 SELECT 
-    "№ кассы" AS kkm_id,
-    "№ чека" AS kkm_request_id,
+    "№ кассы" AS cash_id,
+    "№ чека" AS cash_request_id,
     "№ строки в чеке" AS position_id,
     позиция AS item,
     цена AS price,
