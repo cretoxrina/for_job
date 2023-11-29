@@ -1,0 +1,19 @@
+SELECT 
+    "№ кассы" AS kkm_id,
+    "№ чека" AS kkm_request_id,
+    "№ строки в чеке" AS position_id,
+    позиция AS item,
+    цена AS price,
+    "Кол-во" AS quantity,
+    "общая сумма за позицию" AS total_sum,
+    "Общая сумма чека" AS total_receipt_sum,
+    (
+        SELECT SUM("Общая сумма чека")
+        FROM тестовое_задание
+    ) AS total_receipt_sum_all,
+    total_sum / "Общая сумма чека" AS sales_share,
+    "Общая сумма чека" / (
+        SELECT SUM("общая сумма за позицию")
+        FROM тестовое_задание
+    ) * 100 AS total_sales_percentage
+FROM тестовое_задание;
